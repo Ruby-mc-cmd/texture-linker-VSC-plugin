@@ -1,0 +1,43 @@
+{
+  "name": "minecraft-texture-linker",
+  "displayName": "Minecraft Texture Linker",
+  "description": "Generates model and item JSON files from a texture file in a Minecraft resource pack.",
+  "version": "1.0.0",
+  "author": "Ruby",
+  "publisher": "mcRuby",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:extension.linkTexture"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.linkTexture",
+        "title": "LinkTexture"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.linkTexture",
+          "when": "resourceExtname == .png"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^5.3.0"
+  }
+}
